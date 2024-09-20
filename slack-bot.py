@@ -41,6 +41,14 @@ def fetch_messages(channel_id):
     except SlackApiError as e:
         print(f"Error fetching messages: {e.response['error']}")
         return []
+    
+def fetch_username(user_id):
+    try:
+        response = client.users_info(user=user_id)
+        return response['user']['name']
+    except SlackApiError as e:
+        print(f"Error fetching user info: {e.response['error']}")
+        return user_id  # Fallback to user ID if username cannot be fetched
 
 def post_message(channel_id, text):
     try:
