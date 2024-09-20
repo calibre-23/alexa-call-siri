@@ -8,7 +8,7 @@ from transformers import pipeline
 classifier = pipeline('sentiment-analysis', model='nlptown/bert-base-multilingual-uncased-sentiment')
 
 # Define a sample text
-text = "I hate you"
+text = "I think you're ok"
 
 # Use the model to make predictions
 result = classifier(text)
